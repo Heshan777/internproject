@@ -236,8 +236,8 @@ export default function LoginForm() {
 
       <Typography sx={{ mt: 4, textAlign: 'center', fontSize: 12, color: '#6b7280' }}>
         Not a member?{' '}
-        <Link href="/register"  underline="hover" sx={{ fontWeight: 700, color: '#16a34a' }}>
-          Register now
+        <Link href="/login"  underline="hover" sx={{ fontWeight: 700, color: '#16a34a' }}>
+          Login
         </Link>
       </Typography>
 
