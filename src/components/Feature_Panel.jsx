@@ -13,7 +13,8 @@ export default function FeaturePanel() {
       sx={{
         position: 'relative',
         width: '100%',
-        maxWidth: 520,
+        height: '100%',
+        maxWidth: 620,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

@@ -103,7 +103,7 @@ export default function LoginForm() {
   }
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 420, px: { xs: 2, lg: 6 } }}>
+    <Box sx={{ width: '100%', height: '100%', maxWidth: 420, borderRadius: 2, borderColor: '#e5e7eb', borderWidth: 1, borderStyle: 'solid', px: { xs: 2, lg: 6 } }}>
       <Box sx={{ mb: 5, textAlign: { xs: 'center', lg: 'left' } }}>
         <Typography sx={{ mb: 2, fontSize: 34, fontWeight: 700, color: '#111827' }}>
           Welcome back!
