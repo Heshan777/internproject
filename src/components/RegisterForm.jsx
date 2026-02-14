@@ -103,7 +103,7 @@ export default function LoginForm() {
   }
 
   return (
-    <Box sx={{ width: '100%', height: '100%', maxWidth: 420, borderRadius: 2, borderColor: '#e5e7eb', borderWidth: 1, borderStyle: 'solid', px: { xs: 2, lg: 6 } }}>
+    <Box sx={{ width: '100%', height: '100%',borderRadius: '40px', borderColor: '#e5e7eb', borderWidth: 1, borderStyle: 'solid', maxWidth: 420, px: { xs: 2, lg: 6 } }}>
       <Box sx={{ mb: 5, textAlign: { xs: 'center', lg: 'left' } }}>
         <Typography sx={{ mb: 2, fontSize: 34, fontWeight: 700, color: '#111827' }}>
           Welcome back!
@@ -120,6 +120,17 @@ export default function LoginForm() {
 
       <Box component="form" onSubmit={handleSubmit}>
         <Stack spacing={2.5}>
+             <TextField
+            fullWidth
+            type="string"
+            placeholder="name"
+            variant="outlined"
+            value={values.name}
+            onChange={handleChange('name')}
+            error={Boolean(errors.name)}
+            helperText={errors.name}
+            sx={textFieldSx}
+          />
           <TextField
             fullWidth
             type="email"
@@ -154,12 +165,30 @@ export default function LoginForm() {
               ),
             }}
           />
+          <TextField
+            fullWidth
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Confirm Password"
+            variant="outlined"
+            value={values.confirmPassword}
+            onChange={handleChange('confirmPassword')}
+            error={Boolean(errors.confirmPassword)}
+            helperText={errors.confirmPassword}
+            sx={textFieldSx}
+            InputProps={{
+              endAdornment: (
+                <IconButton
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </IconButton>
+              ),
+            }}
+          />
 
-          <Box sx={{ textAlign: 'right' }}>
-            <Link href="#" underline="none" sx={{ fontSize: 11, fontWeight: 600, color: '#6b7280' }}>
-              Forgot Password?
-            </Link>
-          </Box>
+          
 
           <Button
             type="submit"
@@ -175,7 +204,7 @@ export default function LoginForm() {
               '&:hover': { bgcolor: '#1f2937' },
             }}
           >
-            Login
+            Sign Up
           </Button>
           {authError ? (
             <Typography sx={{ fontSize: 12, color: '#dc2626', textAlign: 'center' }}>
@@ -191,53 +220,14 @@ export default function LoginForm() {
         <Divider sx={{ flex: 1 }} />
       </Stack>
 
-      <Stack direction="row" justifyContent="center" spacing={2}>
-        <IconButton
-          aria-label="Google login"
-          onClick={handleGoogleLogin}
-          sx={{
-            width: 44,
-            height: 44,
-            border: '1px solid #e5e7eb',
-            borderRadius: '9999px',
-            color: '#111827',
-            '&:hover': { backgroundColor: '#f9fafb' },
-          }}
-        >
-          <Typography sx={{ fontWeight: 700, fontSize: 14 }}>G</Typography>
-        </IconButton>
-        <IconButton
-          aria-label="Facebook login"
-          sx={{
-            width: 44,
-            height: 44,
-            border: '1px solid #e5e7eb',
-            borderRadius: '9999px',
-            color: '#111827',
-            '&:hover': { backgroundColor: '#f9fafb' },
-          }}
-        >
-          <FacebookRounded fontSize="small" />
-        </IconButton>
-        <IconButton
-          aria-label="Website"
-          sx={{
-            width: 44,
-            height: 44,
-            border: '1px solid #e5e7eb',
-            borderRadius: '9999px',
-            color: '#111827',
-            '&:hover': { backgroundColor: '#f9fafb' },
-          }}
-        >
-          <Language fontSize="small" />
-        </IconButton>
-      </Stack>
+     
+        
+      
 
       <Typography sx={{ mt: 4, textAlign: 'center', fontSize: 12, color: '#6b7280' }}>
         Not a member?{' '}
-        <Link href="/register"  underline="hover" sx={{ fontWeight: 700, color: '#16a34a' }}>
-          Register now
+        <Link href="/login"  underline="hover" sx={{ fontWeight: 700, color: '#16a34a' }}>
+          Login
         </Link>
       </Typography>
 
